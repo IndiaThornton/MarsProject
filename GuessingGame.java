@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class GuessingGame {
+public class  GuessingGame {
 
     public GuessingGame() {
         Scanner input = new Scanner(System.in);
@@ -26,27 +26,39 @@ public class GuessingGame {
         while (correctGuess == false) {
             increment++;
 
-            try {
+            try
+            {
                 guess = input.nextInt();
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 String badInput = input.next();
-                System.out.println("That's not an integer, try again.");
+
+                System.out.println("That's not an integer, try again");
+
                 continue;
             }
-            if (guess < 1 || guess > 100) {
-                System.out.println("You’re guess is out of range. Please try again.");
-            } else if (number > guess) {
-                System.out.println("Your guess is too high. Please try again.");
-            } else if (number < number) {
-                System.out.println("Your guess is too low. Please try again.");
-            } else if (number == guess) {
+
+            if (guess > 100 || guess < 1)
+            {
+                System.out.println("You're guess is out of range. Please try again.");
+            }
+
+            else if (guess > number)
+            {
+                System.out.println("You're guess is too high. Please try again.");
+            }
+
+
+            else if (guess < number)
+            {
+                System.out.println("You're guess is too low. Please try again.");
+            }
+            else if (guess == number)
+            {
                 System.out.println("Well done, " + name + "! You found my number in " + increment + " tries!");
                 correctGuess = true;
             }
-
         }
-
-
     }
 }
-
